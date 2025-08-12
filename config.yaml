@@ -14,8 +14,20 @@ dotfiles:
   d_nvim:
     src: config/nvim
     dst: ~/.config/nvim
+  f_tmux.conf.local:
+    src: tmux.conf.local
+    dst: ~/.tmux.conf.local
+  f_zshrc:
+    src: zshrc
+    dst: ~/.zshrc
+  d_ghostty:
+    src: config/ghostty
+    dst: ~/.config/ghostty
 profiles:
   gmkbot:
     dotfiles:
     - d_lazygit
     - d_nvim
+    - f_tmux.conf.local
+    - f_zshrc
+    - d_ghostty
