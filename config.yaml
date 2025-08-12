@@ -23,6 +23,12 @@ dotfiles:
   d_ghostty:
     src: config/ghostty
     dst: ~/.config/ghostty
+  f_config.json:
+    src: config/httpie/config.json
+    dst: ~/.config/httpie/config.json
+  f_config.yml:
+    src: config/lazydocker/config.yml
+    dst: ~/.config/lazydocker/config.yml
 profiles:
   gmkbot:
     dotfiles:
@@ -31,3 +37,5 @@ profiles:
     - f_tmux.conf.local
     - f_zshrc
     - d_ghostty
+    - f_config.json
+    - f_config.yml
