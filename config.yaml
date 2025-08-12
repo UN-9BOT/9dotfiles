@@ -44,6 +44,12 @@ dotfiles:
   f_yazi.toml:
     src: config/yazi/yazi.toml
     dst: ~/.config/yazi/yazi.toml
+  f_config.cfg:
+    src: config/yandex-disk/config.cfg
+    dst: ~/.config/yandex-disk/config.cfg
+  d_yd-tools:
+    src: config/yd-tools
+    dst: ~/.config/yd-tools
 profiles:
   gmkbot:
     dotfiles:
@@ -59,3 +65,5 @@ profiles:
     - f_keymap.toml
     - f_package.toml
     - f_yazi.toml
+    - f_config.cfg
+    - d_yd-tools
