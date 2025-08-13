@@ -1,0 +1,5 @@
+# export VISUAL=/usr/bin/nvim
+# export EDITOR=/usr/bin/nvim
+# alias vim="nvim"
+export XDG_CONFIG_HOME="$HOME/.config"
+export ZDOTDIR="$XDG_CONFIG_HOME/zshrc"

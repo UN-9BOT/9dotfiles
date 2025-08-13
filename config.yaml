@@ -17,9 +17,6 @@ dotfiles:
   f_tmux.conf.local:
     src: tmux.conf.local
     dst: ~/.tmux.conf.local
-  f_zshrc:
-    src: zshrc
-    dst: ~/.zshrc
   d_ghostty:
     src: config/ghostty
     dst: ~/.config/ghostty
@@ -50,13 +47,18 @@ dotfiles:
   d_yd-tools:
     src: config/yd-tools
     dst: ~/.config/yd-tools
+  f_zshenv:
+    src: zshenv
+    dst: ~/.zshenv
+  d_zshrc:
+    src: config/zshrc
+    dst: ~/.config/zshrc
 profiles:
   gmkbot:
     dotfiles:
     - d_lazygit
     - d_nvim
     - f_tmux.conf.local
-    - f_zshrc
     - d_ghostty
     - f_config.json
     - f_config.yml
@@ -67,3 +69,5 @@ profiles:
     - f_yazi.toml
     - f_config.cfg
     - d_yd-tools
+    - f_zshenv
+    - d_zshrc
