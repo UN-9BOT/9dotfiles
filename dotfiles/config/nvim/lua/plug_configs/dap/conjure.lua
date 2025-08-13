@@ -30,7 +30,7 @@
 --
 local M = {
   "Olical/conjure",
-  ft = { "clojure", "fennel", "python", "lua" }, -- etc
+  ft = { "clojure", "fennel", "python", "lua", "sh" }, -- etc
   lazy = true,
   init = function()
     vim.g["conjure#extract#tree_sitter#enabled"] = true

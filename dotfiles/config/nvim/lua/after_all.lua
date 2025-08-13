@@ -81,3 +81,10 @@ vim.api.nvim_create_autocmd("User", {
 --   end,
 -- })
 --
+--
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+  pattern = { "*.zsh", ".zshrc" },
+  callback = function(args)
+    vim.bo[args.buf].filetype = "bash"  -- жестко выставляем ft=bash
+  end,
+})

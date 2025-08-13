@@ -53,6 +53,9 @@ dotfiles:
   d_zshrc:
     src: config/zshrc
     dst: ~/.config/zshrc
+  d_tmux_scripts:
+    src: config/scripts/tmux_scripts
+    dst: ~/.config/scripts/tmux_scripts
 profiles:
   gmkbot:
     dotfiles:
@@ -71,3 +74,4 @@ profiles:
     - d_yd-tools
     - f_zshenv
     - d_zshrc
+    - d_tmux_scripts

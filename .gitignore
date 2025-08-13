@@ -1,3 +1,4 @@
 *.shada
 dotfiles/config/lazygit/state.yml
 dotfiles/config/zshrc/.zcompdump
+dotfiles/config/nvim/after/queries

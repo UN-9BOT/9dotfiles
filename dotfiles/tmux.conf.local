@@ -461,6 +461,12 @@ bind -n M-s switch-client -l # switch latest session
 ##### tmux-plugins/tmux-continuum
 set -g @continuum-restore 'on'
 
+##### tmux-plugins/tmux-resurrect
+# Запустить дедуп сразу ПОСЛЕ восстановления сессий/окон резуректом
+set -g @resurrect-hook-post-restore-all 'sh ~/.config/scripts/tmux_scripts/tmux_dedup.sh && sh ~/.config/scripts/tmux_scripts/kill_nvim_in_tmux.sh'
+# set -g @resurrect-hook-post-restore-all 'notify-send "tmux_dedup.sh"'
+
+
 
 ##### laktak/extrakto
 set -g @extrakto_split_size "15"
