@@ -29,9 +29,6 @@ dotfiles:
   d_pypoetry:
     src: config/pypoetry
     dst: ~/.config/pypoetry
-  f_init.lua:
-    src: config/yazi/init.lua
-    dst: ~/.config/yazi/init.lua
   f_keymap.toml:
     src: config/yazi/keymap.toml
     dst: ~/.config/yazi/keymap.toml
@@ -66,7 +63,6 @@ profiles:
     - f_config.json
     - f_config.yml
     - d_pypoetry
-    - f_init.lua
     - f_keymap.toml
     - f_package.toml
     - f_yazi.toml
