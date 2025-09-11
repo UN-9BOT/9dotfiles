@@ -10,3 +10,7 @@ bindkey '^[[1;5D' backward-word
 # history search (Ctrl-P/N)
 bindkey '^P' up-line-or-search
 bindkey '^N' down-line-or-search
+
+autoload -U edit-command-line
+zle -N edit-command-line
+bindkey '^x^e' edit-command-line

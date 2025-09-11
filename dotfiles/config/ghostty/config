@@ -194,3 +194,4 @@ keybind = shift+down=unbind
 
 # scroll_to_top
 keybind = shift+home=unbind
+# config-file = ./config-dankcolors

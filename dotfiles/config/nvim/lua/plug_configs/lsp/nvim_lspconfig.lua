@@ -21,6 +21,7 @@ M.dependencies = {
   },
 
   { "aznhe21/actions-preview.nvim" },
+  { "nanotee/sqls.nvim" }, -- for sql queries
   { "folke/trouble.nvim" },
   {
     "folke/lazydev.nvim",
@@ -62,6 +63,10 @@ M.init = function(bufnr)
   vim.lsp.protocol.make_client_capabilities().textDocument.completion.completionItem.snippetSupport = true
 
   local capabilities = require("cmp_nvim_lsp").default_capabilities()
+  capabilities.textDocument.foldingRange = {
+    dynamicRegistration = false,
+    lineFoldingOnly = true,
+  }
 
   require("plug_configs.lsp.ft_python").init(capabilities)
   require("plug_configs.lsp.ft_sql")

@@ -27,5 +27,5 @@ done
 unset _modules _f
 
 # To customize prompt, run `p10k configure` or edit ~/.config/zshrc/.p10k.zsh.
-[[ ! -f ~/.config/zshrc/.p10k.zsh ]] || source ~/.config/zshrc/.p10k.zsh
+[[ ! -f ~/.config/zshrc/extensions/.p10k.zsh ]] || source ~/.config/zshrc/extensions/.p10k.zsh
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet

@@ -19,6 +19,7 @@ b({ "i", "v", "n", "x" }, "<ESC>", "<ESC>:noh<CR>", opts)
 -- editing
 -- b("n", "yc", "yygccp", { remap = true, silent = true })
 b("x", "<leader>d", "y'>p", { remap = true, silent = true })
+b("x", "<leader>vd", "ygvgc'>p", { remap = true, silent = true })
 
 -- blackhole register
 b({ "n", "v" }, "X", '"_x', opts)
