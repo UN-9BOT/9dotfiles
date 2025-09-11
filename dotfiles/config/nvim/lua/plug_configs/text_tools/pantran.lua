@@ -1,6 +1,7 @@
 -- translate
 return {
-  "potamides/pantran.nvim",
+  "UN-9BOT/pantran.nvim",
+  branch = "fix_help",
   config = function()
     local opts = { noremap = true, silent = true, expr = true }
     local pantran = require("pantran")
