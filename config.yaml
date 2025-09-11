@@ -53,6 +53,9 @@ dotfiles:
   d_tmux_scripts:
     src: config/scripts/tmux_scripts
     dst: ~/.config/scripts/tmux_scripts
+  d_niri:
+    src: config/niri
+    dst: ~/.config/niri
 profiles:
   gmkbot:
     dotfiles:
@@ -71,3 +74,4 @@ profiles:
     - f_zshenv
     - d_zshrc
     - d_tmux_scripts
+    - d_niri

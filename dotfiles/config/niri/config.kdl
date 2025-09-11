@@ -1,0 +1,390 @@
+environment {
+  ELECTRON_OZONE_PLATFORM_HINT "auto"
+  //QT_QPA_PLATFORMTHEME "qt6ct"
+  QT_STYLE_OVERRIDE "Breeze"
+  GDK_SCALE "1.5"
+}
+overview {
+  zoom 0.5
+  workspace-shadow {
+    off
+  }
+}
+input {
+  mouse {
+    // off
+    // natural-scroll
+    accel-speed 0
+    accel-profile "flat"
+ // scroll-method "no-scroll"
+  }
+  keyboard {
+    xkb {
+      layout "us,ru"
+      options "grp:caps_toggle,grp:shift_caps_toggle"
+    }
+    repeat-delay 200
+    numlock
+  }
+}
+// layer-rule {
+//     match namespace="swww-daemon"
+//     place-within-backdrop true // позади всего
+// }
+layout {
+  // Set gaps around windows in logical pixels.
+  gaps 10
+  background-color "transparent"
+  center-focused-column "never"
+  preset-column-widths {
+    proportion 0.33333
+    proportion 0.5
+    proportion 0.66667
+  }
+  default-column-width {
+    proportion 0.5
+  }
+  focus-ring {
+    off
+  }
+  border {
+    width 2.2
+    active-color "#a8dee9"
+    inactive-color "#434c5e"
+    urgent-color "#bf616a"
+  }
+}
+spawn-at-startup "qs" "-c" "dms"
+spawn-at-startup "bash" "-c" "wl-paste --watch cliphist store &"
+spawn-at-startup "/usr/lib/mate-polkit/polkit-mate-authentication-agent-1"
+config-notification {
+  disable-failed
+}
+// layer-rule {
+//     match namespace="waybar"
+//     match at-startup=true
+//
+//     opacity 0.6
+//
+//     shadow {
+//         on
+//         softness 10
+//         spread 8
+//         offset x=0 y=5
+//     }
+//
+//     geometry-corner-radius 15
+// }
+prefer-no-csd
+window-rule {
+  match app-id="brave-browser"
+  match title="(Толк|Talk|Стендап BNPL — Толк)"
+  open-floating true
+  default-floating-position x=32 y=32 relative-to="bottom-right"
+ // default-floating-layer background   // ← вот это
+}
+window-rule {
+  geometry-corner-radius 5
+  clip-to-geometry true
+  draw-border-with-background false
+  opacity 0.95
+}
+window-rule {
+  match app-id="brave"
+  opacity 0.97
+}
+output "HDMI-A-1" {
+  mode "1920x1080@74.973"
+  scale 1
+  position x=0 y=0
+}
+output "DP-2" {
+  mode "1920x1080@60.000"
+  scale 1
+  position x=0 y=1080
+}
+binds {
+  // F16 US
+  XF86Launch7 {
+    spawn "niri" "msg" "action" "switch-layout" "0"
+  }
+  // F15 RU
+  XF86Launch6 {
+    spawn "niri" "msg" "action" "switch-layout" "1"
+  }
+  Mod+Shift+Slash {
+    show-hotkey-overlay
+  }
+  Mod+RETURN hotkey-overlay-title="Terminal" {
+    spawn "ghostty"
+  }
+  Mod+A hotkey-overlay-title="Launcher" {
+    spawn "qs" "-c" "dms" "ipc" "call" "spotlight" "toggle"
+  }
+  Mod+V hotkey-overlay-title="Clipboard Manager" {
+    spawn "qs" "-c" "dms" "ipc" "call" "clipboard" "toggle"
+  }
+  Mod+M {
+    set-dynamic-cast-monitor
+  }
+  // Mod+M hotkey-overlay-title="Task Manager" {
+  //   spawn "qs" "-c" "dms" "ipc" "call" "processlist" "toggle";
+  // }
+  // Mod+N hotkey-overlay-title="Notification Center" {
+  //   spawn "qs" "-c" "dms" "ipc" "call" "notifications" "toggle";
+  // }
+  // Super+Alt+L hotkey-overlay-title="Lock Screen" {
+  //   spawn "qs" "-c" "dms" "ipc" "call" "lock" "lock";
+  // }
+  // Mod+X hotkey-overlay-title="Power Menu" {
+  //   spawn "qs" "-c" "dms" "ipc" "call" "powermenu" "toggle";
+  // }
+  XF86AudioRaiseVolume allow-when-locked=true {
+    spawn "qs" "-c" "dms" "ipc" "call" "audio" "increment" "5"
+  }
+  XF86AudioLowerVolume allow-when-locked=true {
+    spawn "qs" "-c" "dms" "ipc" "call" "audio" "decrement" "5"
+  }
+  XF86AudioMute allow-when-locked=true {
+    spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+  }
+  XF86AudioPlay allow-when-locked=true {
+    spawn "qs" "-c" "dms" "ipc" "call" "mpris" "playPause"
+  }
+  XF86AudioMicMute allow-when-locked=true {
+    spawn "qs" "-c" "dms" "ipc" "call" "audio" "micmute"
+  }
+  XF86MonBrightnessUp allow-when-locked=true {
+    spawn "brightnessctl" "--class=backlight" "set" "+10%"
+  }
+  XF86MonBrightnessDown allow-when-locked=true {
+    spawn "brightnessctl" "--class=backlight" "set" "10%-"
+  }
+  Mod+O repeat=false {
+    toggle-overview
+  }
+  Mod+Q repeat=false {
+    close-window
+  }
+  Mod+H {
+    focus-column-left
+  }
+  Mod+J {
+    focus-window-or-workspace-down
+  }
+  Mod+K {
+    focus-window-or-workspace-up
+  }
+  Mod+L {
+    focus-column-right
+  }
+  Mod+Ctrl+H {
+    move-column-left
+  }
+  Mod+Ctrl+J {
+    move-window-down-or-to-workspace-down
+  }
+  Mod+Ctrl+K {
+    move-window-up-or-to-workspace-up
+  }
+  Mod+Ctrl+L {
+    move-column-right
+  }
+  Mod+Home {
+    focus-column-first
+  }
+  Mod+End {
+    focus-column-last
+  }
+  Mod+Ctrl+Home {
+    move-column-to-first
+  }
+  Mod+Ctrl+End {
+    move-column-to-last
+  }
+  // Mod+Shift+H     { focus-monitor-left; }
+  Mod+Shift+J {
+    focus-monitor-down
+  }
+  Mod+Shift+K {
+    focus-monitor-up
+  }
+  // Mod+Shift+L     { focus-monitor-right; }
+  Mod+Shift+Ctrl+Left {
+    move-window-to-monitor-left
+  }
+  Mod+Shift+Ctrl+Down {
+    move-window-to-monitor-down
+  }
+  Mod+Shift+Ctrl+Up {
+    move-window-to-monitor-up
+  }
+  Mod+Shift+Ctrl+Right {
+    move-window-to-monitor-right
+  }
+  Mod+Shift+Ctrl+H {
+    move-window-to-monitor-left
+  }
+  Mod+Shift+Ctrl+J {
+    move-window-to-monitor-down
+  }
+  Mod+Shift+Ctrl+K {
+    move-window-to-monitor-up
+  }
+  Mod+Shift+Ctrl+L {
+    move-window-to-monitor-right
+  }
+  Mod+U {
+    focus-workspace-down
+  }
+  Mod+I {
+    focus-workspace-up
+  }
+  Mod+Ctrl+U {
+    move-column-to-workspace-down
+  }
+  Mod+Ctrl+I {
+    move-column-to-workspace-up
+  }
+  // Alternatively, there are commands to move just a single window:
+  // Mod+Ctrl+Page_Down { move-window-to-workspace-down; }
+  // ...
+  Mod+Shift+U {
+    move-workspace-down
+  }
+  Mod+Shift+I {
+    move-workspace-up
+  }
+  Mod+1 {
+    focus-workspace 1
+  }
+  Mod+2 {
+    focus-workspace 2
+  }
+  Mod+3 {
+    focus-workspace 3
+  }
+  Mod+4 {
+    focus-workspace 4
+  }
+  Mod+5 {
+    focus-workspace 5
+  }
+  Mod+6 {
+    focus-workspace 6
+  }
+  Mod+7 {
+    focus-workspace 7
+  }
+  Mod+8 {
+    focus-workspace 8
+  }
+  Mod+9 {
+    focus-workspace 9
+  }
+  Mod+Ctrl+1 {
+    move-window-to-workspace 1
+  }
+  Mod+Ctrl+2 {
+    move-window-to-workspace 2
+  }
+  Mod+Ctrl+3 {
+    move-window-to-workspace 3
+  }
+  Mod+Ctrl+4 {
+    move-window-to-workspace 4
+  }
+  Mod+Ctrl+5 {
+    move-window-to-workspace 5
+  }
+  Mod+Ctrl+6 {
+    move-window-to-workspace 6
+  }
+  Mod+Ctrl+7 {
+    move-window-to-workspace 7
+  }
+  Mod+Ctrl+8 {
+    move-window-to-workspace 8
+  }
+  Mod+Ctrl+9 {
+    move-window-to-workspace 9
+  }
+  Mod+BracketLeft {
+    consume-or-expel-window-left
+  }
+  Mod+BracketRight {
+    consume-or-expel-window-right
+  }
+  Mod+Comma {
+    consume-window-into-column
+  }
+  Mod+Period {
+    expel-window-from-column
+  }
+  Mod+R {
+    switch-preset-column-width
+  }
+  Mod+Shift+R {
+    switch-preset-window-height
+  }
+  Mod+Ctrl+R {
+    reset-window-height
+  }
+  Mod+F {
+    maximize-column
+  }
+  Mod+Shift+F {
+    fullscreen-window
+  }
+  Mod+Ctrl+F {
+    expand-column-to-available-width
+  }
+  Mod+C {
+    center-column
+  }
+  Mod+Ctrl+C {
+    center-visible-columns
+  }
+  Mod+Minus {
+    set-column-width "-10%"
+  }
+  Mod+Alt+H {
+    set-column-width "-10%"
+  }
+  Mod+Equal {
+    set-column-width "+10%"
+  }
+  Mod+Alt+L {
+    set-column-width "+10%"
+  }
+  Mod+Shift+Minus {
+    set-window-height "-10%"
+  }
+  Mod+Alt+J {
+    set-window-height "-10%"
+  }
+  Mod+Shift+Equal {
+    set-window-height "+10%"
+  }
+  Mod+Alt+K {
+    set-window-height "+10%"
+  }
+  // Move the focused window between the floating and the tiling layout.
+  Mod+Shift+V {
+    toggle-window-floating
+  }
+  // Mod+Shift+V { switch-focus-between-floating-and-tiling; }
+  // Toggle tabbed column display mode.
+  // Windows in this column will appear as vertical tabs,
+  // rather than stacked on top of each other.
+  Mod+W {
+    toggle-column-tabbed-display
+  }
+  Print {
+    spawn "sh" "-c" "grim -g \"$(slurp)\" - | swappy -f -"
+  }
+  // Powers off the monitors. To turn them back on, do any input like moving the mouse or pressing any other key.
+  Mod+Shift+P {
+    power-off-monitors
+  }
+}
