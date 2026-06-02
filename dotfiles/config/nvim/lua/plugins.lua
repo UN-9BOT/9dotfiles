@@ -17,7 +17,6 @@ lazy.setup({
   { "b0o/incline.nvim", config = u.r("incline") }, -- float name for tab
   { "numToStr/Comment.nvim", config = u.r("Comment") }, -- commentary for if (Loop)
   { "nacro90/numb.nvim", config = u.r("numb") }, -- live preview for :{number_line}
-  { "andrewferrier/debugprint.nvim", config = u.r("debugprint") }, -- debug print g?v
   { "m-demare/hlargs.nvim", config = u.r("hlargs") }, -- ts based for hl args
   { "j-hui/fidget.nvim", opts = {} }, -- ui for lsp-progress
   { "kazhala/close-buffers.nvim" }, -- autoclose hidden buffers (optimization)
@@ -26,7 +25,6 @@ lazy.setup({
   { "NStefan002/visual-surround.nvim", config = u.r("visual-surround") }, -- surround visual mode ( [{( )
   { "isak102/ghostty.nvim", config = u.r("ghostty") }, -- ghostty config linting
   { "nullromo/go-up.nvim", config = u.r("go-up") }, -- extra top lines
-  { "yochem/jq-playground.nvim", opts = { cmd = { "gojq" } } }, -- jq playground
   { "nvimdev/indentmini.nvim", config = u.r("indentmini") }, -- pipe view for indent
 
   -- -----------------------
@@ -77,7 +75,6 @@ lazy.setup({
   u.safe_require("plug_configs.search.yankbank"), -- yank register ,r
   u.safe_require("plug_configs.search.telescope"), -- telescope
   u.safe_require("plug_configs.search.trouble"), -- quickfix, bug-list and other (telescope ctrl+q :  (x del))
-  u.safe_require("plug_configs.search.websearch"), -- ,w search in browser
   u.safe_require("plug_configs.navigate.hlslens"), -- for navigate in search mode
   u.safe_require("plug_configs.navigate.vim_smooth_scroll"), -- scrolling
   u.safe_require("plug_configs.navigate.easymotion"), -- fast motion
@@ -139,7 +136,7 @@ lazy.setup({
   {
     "UN-9BOT/sql-ghosty.nvim",
     dependencies = {
-      "nvim-treesitter/nvim-treesitter",
+      "neovim-treesitter/nvim-treesitter",
     },
     opts = {
       show_hints_by_default = true,

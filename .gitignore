@@ -3,3 +3,4 @@ dotfiles/config/lazygit/state.yml
 dotfiles/config/zshrc/.zcompdump
 dotfiles/config/nvim/after/queries
 /dotfiles/config/niri/.codex
+/dotfiles/config/nvim/query editor

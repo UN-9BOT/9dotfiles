@@ -2,7 +2,9 @@ return {
   "jedrzejboczar/possession.nvim",
   dependencies = { "nvim-lua/plenary.nvim" },
   config = function()
-    require("possession").setup({
+    local possession = require("possession")
+
+    possession.setup({
       autoload = "last_cwd",
       plugins = {
         delete_hidden_buffers = {
@@ -23,6 +25,14 @@ return {
         end,
       },
     })
+
+    require("possession.utils").stop_lsp_clients = function()
+      local get_clients = vim.lsp.get_clients or vim.lsp.get_active_clients
+
+      for _, client in ipairs(get_clients()) do
+        client:stop()
+      end
+    end
 
     -- NOTE:  Фикс для neotest
     vim.api.nvim_create_autocmd("ExitPre", {

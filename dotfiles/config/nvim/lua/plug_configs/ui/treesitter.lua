@@ -1,9 +1,10 @@
 local M = {
-  "nvim-treesitter/nvim-treesitter",
+  "neovim-treesitter/nvim-treesitter",
   branch = "main",
   lazy = false,
   build = ":TSUpdate",
   dependencies = {
+    "neovim-treesitter/treesitter-parser-registry",
     {
       "nvim-treesitter/nvim-treesitter-textobjects",
       branch = "main",
