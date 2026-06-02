@@ -37,8 +37,24 @@ M.config = function()
   end
 
   b({ "n", "i" }, "<F19>", clean_toggle)
+  -- b({ "n", "i" }, "<S-F7>", clean_toggle)
 
   vim.g.SUPERMAVEN_DISABLED = 1
 end
 
 return M
+--
+-- return {
+--   "monkoose/neocodeium",
+--   disabled = true,
+--   event = "VeryLazy",
+--   config = function()
+--     local neocodeium = require("neocodeium")
+--     neocodeium.setup()
+--     vim.keymap.set("i", "<A-g>", neocodeium.accept)
+--     vim.keymap.set("i", "<A-c>", neocodeium.clear)
+--     vim.keymap.set("i", "<A-f>", neocodeium.accept_word)
+--     vim.keymap.set("i", "<A-F>", neocodeium.accept_line)
+--     vim.keymap.set("i", "<A-n>", neocodeium.cycle)
+--   end,
+-- }

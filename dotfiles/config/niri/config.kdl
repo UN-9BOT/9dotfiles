@@ -54,9 +54,11 @@ layout {
     urgent-color "#bf616a"
   }
 }
-spawn-at-startup "qs" "-c" "dms"
+spawn-at-startup "dms"
 spawn-at-startup "bash" "-c" "wl-paste --watch cliphist store &"
 spawn-at-startup "/usr/lib/mate-polkit/polkit-mate-authentication-agent-1"
+// Delay startup slightly so PipeWire and WirePlumber are ready.
+spawn-at-startup "bash" "-lc" "sleep 6; pgrep -x easyeffects >/dev/null || exec easyeffects --service-mode --hide-window"
 config-notification {
   disable-failed
 }
@@ -76,15 +78,15 @@ config-notification {
 //     geometry-corner-radius 15
 // }
 prefer-no-csd
+// window-rule {
+//   match app-id="brave-browser"
+//   match title="(Толк|Talk|Стендап BNPL — Толк)"
+//   open-floating true
+//   default-floating-position x=32 y=32 relative-to="bottom-right"
+//  // default-floating-layer background   // ← вот это
+// }
 window-rule {
-  match app-id="brave-browser"
-  match title="(Толк|Talk|Стендап BNPL — Толк)"
-  open-floating true
-  default-floating-position x=32 y=32 relative-to="bottom-right"
- // default-floating-layer background   // ← вот это
-}
-window-rule {
-  geometry-corner-radius 5
+  geometry-corner-radius 10
   clip-to-geometry true
   draw-border-with-background false
   opacity 0.95
@@ -98,11 +100,22 @@ output "HDMI-A-1" {
   scale 1
   position x=0 y=0
 }
-output "DP-2" {
-  mode "1920x1080@60.000"
-  scale 1
+
+output "DP-1" {
+  mode "3840x2560@60.000"
+  scale 1.4
   position x=0 y=1080
 }
+// output "HDMI-A-1" {
+//   mode "1920x1080@74.973"
+//   scale 1
+//   position x=0 y=0
+// }
+// output "DP-2" {
+//   mode "1920x1080@60.000"
+//   scale 1
+//   position x=0 y=1080
+// }
 binds {
   // F16 US
   XF86Launch7 {
@@ -119,40 +132,42 @@ binds {
     spawn "ghostty"
   }
   Mod+A hotkey-overlay-title="Launcher" {
-    spawn "qs" "-c" "dms" "ipc" "call" "spotlight" "toggle"
+    spawn "dms" "ipc" "call" "spotlight" "toggle"
   }
   Mod+V hotkey-overlay-title="Clipboard Manager" {
-    spawn "qs" "-c" "dms" "ipc" "call" "clipboard" "toggle"
+    spawn "dms" "ipc" "call" "clipboard" "toggle"
   }
   Mod+M {
     set-dynamic-cast-monitor
   }
+
+  Alt+Tab { focus-monitor-next; }
   // Mod+M hotkey-overlay-title="Task Manager" {
-  //   spawn "qs" "-c" "dms" "ipc" "call" "processlist" "toggle";
+  //   spawn "dms" "ipc" "call" "processlist" "toggle";
   // }
   // Mod+N hotkey-overlay-title="Notification Center" {
-  //   spawn "qs" "-c" "dms" "ipc" "call" "notifications" "toggle";
+  //   spawn "dms" "ipc" "call" "notifications" "toggle";
   // }
   // Super+Alt+L hotkey-overlay-title="Lock Screen" {
-  //   spawn "qs" "-c" "dms" "ipc" "call" "lock" "lock";
+  //   spawn "dms" "ipc" "call" "lock" "lock";
   // }
   // Mod+X hotkey-overlay-title="Power Menu" {
-  //   spawn "qs" "-c" "dms" "ipc" "call" "powermenu" "toggle";
+  //   spawn "dms" "ipc" "call" "powermenu" "toggle";
   // }
   XF86AudioRaiseVolume allow-when-locked=true {
-    spawn "qs" "-c" "dms" "ipc" "call" "audio" "increment" "5"
+    spawn "dms" "ipc" "call" "audio" "increment" "5"
   }
   XF86AudioLowerVolume allow-when-locked=true {
-    spawn "qs" "-c" "dms" "ipc" "call" "audio" "decrement" "5"
+    spawn "dms" "ipc" "call" "audio" "decrement" "5"
   }
   XF86AudioMute allow-when-locked=true {
     spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
   }
   XF86AudioPlay allow-when-locked=true {
-    spawn "qs" "-c" "dms" "ipc" "call" "mpris" "playPause"
+    spawn "dms" "ipc" "call" "mpris" "playPause"
   }
-  XF86AudioMicMute allow-when-locked=true {
-    spawn "qs" "-c" "dms" "ipc" "call" "audio" "micmute"
+  Mod+P allow-when-locked=true {
+    spawn "dms" "ipc" "call" "audio" "micmute"
   }
   XF86MonBrightnessUp allow-when-locked=true {
     spawn "brightnessctl" "--class=backlight" "set" "+10%"
@@ -234,9 +249,9 @@ binds {
   Mod+Shift+Ctrl+L {
     move-window-to-monitor-right
   }
-  Mod+U {
-    focus-workspace-down
-  }
+  // Mod+U {
+  //   focus-workspace-down
+  // }
   Mod+I {
     focus-workspace-up
   }
@@ -381,8 +396,17 @@ binds {
     toggle-column-tabbed-display
   }
   Print {
-    spawn "sh" "-c" "grim -g \"$(slurp)\" - | swappy -f -"
+    spawn "sh" "-c" "grim -g \"$(slurp)\" -l 0 - | swappy -f -"
   }
+  Mod+u {
+    spawn "sh" "-c" "grim -o DP-1 - | wl-copy"
+  }
+  Mod+y {
+    spawn "sh" "-c" "grim -o HDMI-A-1 - | wl-copy"
+  }
+  // Mod+s {
+  //   spawn "sh" "-c" "/home/unbot/code/opensource/temp/vibe-linux-hotkey/vibet.sh &"
+  // }
   // Powers off the monitors. To turn them back on, do any input like moving the mouse or pressing any other key.
   Mod+Shift+P {
     power-off-monitors

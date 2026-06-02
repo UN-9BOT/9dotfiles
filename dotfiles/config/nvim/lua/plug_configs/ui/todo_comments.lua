@@ -10,7 +10,7 @@ M.config = function()
       link = { "Identifier", "#1C1AED" },
       hint = { "DiagnosticHint", "#10B981" },
       default = { "Identifier", "#7C3AED" },
-      test = { "Identifier", "#FF00FF" }
+      test = { "Identifier", "#FF00FF" },
     },
     keywords = {
       FIX = {
@@ -29,8 +29,11 @@ M.config = function()
     },
     highlight = {
       multiline = false, -- enable multine todo comments
+
+      -- pattern = [[.*<(KEYWORDS)\%(\s*([^)]\+)\|\s\+@\S\+\)\?\s*:]],
+      --
     },
-  }
-  )
+
+  })
 end
 return M

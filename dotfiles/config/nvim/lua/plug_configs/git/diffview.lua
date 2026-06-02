@@ -1,4 +1,4 @@
-local M = { "sindrets/diffview.nvim", lazy = false }
+local M = { "dlyongemallo/diffview.nvim", lazy = false }
 
 _G.__save_win_diff_view = nil
 

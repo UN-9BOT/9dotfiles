@@ -433,6 +433,23 @@ tmux_conf_uninstall_plugins_on_reload=false
 # set -g @plugin 'tmux-plugins/tmux-resurrect'
 # set -g @plugin 'tmux-plugins/tmux-continuum'
 
+### -> bell
+# Показывать подпись в рамке pane
+set-option -g pane-border-status top
+
+# Обычная и активная рамка
+set-option -g pane-border-style 'fg=colour238'
+set-option -g pane-active-border-style 'fg=colour39'
+
+set -g pane-border-status top
+set -g pane-border-style 'fg=colour238'
+set -g pane-active-border-style 'fg=colour45'
+
+# В title pane будет видно, что это attention-pane
+set -g pane-border-format '#{pane_index} #{pane_current_command}'
+
+### -< bell
+
 ### SECTION PLUGINGS
 set -g @tpm_plugins '              \
     tmux-plugins/tmux-sessionist   \
@@ -444,7 +461,13 @@ set -g @tpm_plugins '              \
     omerxx/tmux-floax \
     UN-9BOT/tmux-neolazygit \
     sainnhe/tmux-fzf \
+    UN-9BOT/tmux-fzf-open-files-nvim \
+    alexekdahl/tmux-compile \
 '
+# set -g @open-file-nvim-key 'X'
+
+# fzf panes navigation
+TMUX_FZF_LAUNCH_KEY="C-f"
 
 ##### AngryMorrocoy/tmux-neolazygit
 set -g @open-lazygit 'l'
@@ -481,7 +504,7 @@ set -g @fuzzback-popup 1
 set -g @fuzzback-popup-size '95%'
 set -g @fuzzback-hide-preview 1
 
-##### sainnhe/tmux-fzf (ctrl-A F)
+##### sainnhe/tmux-fzf (ctrl-A ctrl-f)
 TMUX_FZF_OPTIONS="-p -w 92% -h 88% -m"
 bind -n "M-w" run-shell -b "~/.tmux/plugins/tmux-fzf/scripts/session.sh switch"
 
@@ -541,6 +564,10 @@ set -g pane-border-style bg=color0
 set-window-option -g window-active-style bg=terminal
 set-window-option -g window-style bg=color0
 
+# image.nvim
+set -gq allow-passthrough on
+set -g visual-activity off
+set-option -g focus-events on
 
 # NOTE: yazi https://yazi-rs.github.io/docs/image-preview#tmux
 set -g allow-passthrough on

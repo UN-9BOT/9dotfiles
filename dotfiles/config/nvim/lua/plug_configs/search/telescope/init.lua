@@ -16,7 +16,7 @@ M.dependencies = {
   { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
   { "nvim-telescope/telescope-live-grep-args.nvim" },
   { "scottmckendry/telescope-resession.nvim" },
-  { "piersolenski/telescope-import.nvim" },
+  { "piersolenski/import.nvim" },
   { "jmacadie/telescope-hierarchy.nvim" },
 
   -- {

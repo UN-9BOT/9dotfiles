@@ -2,7 +2,7 @@ local M = {}
 
 M.mapping = {
   diagnostic = {
-    def = vim.diagnostic.open_float
+    def = vim.diagnostic.open_float,
   },
   definition = {
     def = vim.lsp.buf.definition,
@@ -39,6 +39,10 @@ M.mapping = {
     def = vim.lsp.buf.references,
     telescope = require("plug_configs.search.telescope")._api_impl.reference(),
     fzf = require("plug_configs.search.fzflua")._api_impl.reference(),
+  },
+  implementation = {
+    def = vim.lsp.buf.implementation,
+    telescope = require("plug_configs.search.telescope")._api_impl.implementation("tab"),
   },
   code_action = {
     def = vim.lsp.buf.code_action,

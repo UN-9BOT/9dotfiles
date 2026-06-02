@@ -88,10 +88,12 @@ M.comparators_tscompae = function(entry1, entry2)
   end
   -- end.
 
-  local ts_utils = require("nvim-treesitter.ts_utils")
   local kind1 = entry1:get_kind()
   local kind2 = entry2:get_kind()
-  local node = ts_utils.get_node_at_cursor()
+  local ok, node = pcall(vim.treesitter.get_node)
+  if not ok then
+    node = nil
+  end
 
   if node and node:type() == "argument" then
     if kind1 == 6 then

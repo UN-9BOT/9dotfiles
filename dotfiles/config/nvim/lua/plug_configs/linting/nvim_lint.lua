@@ -71,13 +71,13 @@ M.config = function()
   _G.is_mypy_enabled = false
   vim.keymap.set("n", "gL", lint_utils.toggle_mypy(lint), { desc = "Toggle mypy" })
   vim.keymap.set("n", "gl", function()
-    vim.cmd("LspRestart")
+    lint_utils.restart_lsp()
     vim.cmd("Gitsigns refresh")
   end, { desc = "Restart lint" })
 
   -- restart lsp
   vim.keymap.set("n", "gl", function()
-    vim.cmd("LspRestart")
+    lint_utils.restart_lsp()
     vim.cmd("Gitsigns refresh")
   end, { desc = "Restart lint" })
 

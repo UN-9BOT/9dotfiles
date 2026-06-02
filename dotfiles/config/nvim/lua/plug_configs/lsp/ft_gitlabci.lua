@@ -1,6 +1,6 @@
 local M = {}
 M.init = function(capabilities)
-  require("lspconfig").gitlab_ci_ls.setup({
+  vim.lsp.config("gitlab_ci", {
     capabilities = capabilities,
   })
   vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {

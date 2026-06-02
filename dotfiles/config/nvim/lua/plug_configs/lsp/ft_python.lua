@@ -1,26 +1,33 @@
 local M = {}
-local lsputil = require("lspconfig/util")
 
--- NOTE: main
-M.init = function(capabilities)
-  require("lspconfig").pyright.setup({
-    capabilities = capabilities,
-    filetypes = { "python" },
-    root_dir = lsputil.root_pattern(".git", "requirements.txt", "pyproject.toml", "Makefile", "README.md"),
-    -- settings = {
-    --   -- https://microsoft.github.io/pyright/#/configuration?id=main-configuration-options
-    --   python = {
-    --     analysis = {
-    --       autoSearchPaths = true,
-    --       diagnosticMode = "openFilesOnly",
-    --       useLibraryCodeForTypes = true,
-    --       -- typeCheckingMode = "strict",
-    --     },
-    --   },
-    -- },
-  })
-end
-return M
+local lsputil = require("lspconfig.util")
+local lsp_utils = require("plug_configs.lsp.utils")
+local lspCapabilities = lsp_utils.lspCapabilities
+
+
+vim.lsp.config('pyright', {
+  capabilities = lspCapabilities,
+  filetypes = { "python" },
+  -- root_dir = lsputil.root_pattern(
+  --   ".git",
+  --   "requirements.txt",
+  --   "pyproject.toml",
+  --   "Makefile",
+  --   "README.md"
+  -- ),
+  -- settings = {
+  --   python = {
+  --     analysis = {
+  --       autoSearchPaths = true,
+  --       diagnosticMode = "openFilesOnly",
+  --       useLibraryCodeForTypes = true,
+  --       typeCheckingMode = "off", -- или "strict"
+  --     },
+  --   },
+  -- },
+})
+vim.lsp.enable('pyright') -- прикрепит к уже открытым python-буферам
+
 
 -- require("lspconfig").pyre.setup({ })
 
@@ -67,3 +74,4 @@ require("lspconfig").basedpyright.setup({
   },
 })
 --]]
+return M

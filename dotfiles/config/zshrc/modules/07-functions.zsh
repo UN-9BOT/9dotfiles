@@ -24,3 +24,13 @@ f() {
 #   zle reset-prompt
 # }
 # zle -N my_custom_function
+
+
+# file management
+# files() {
+#     nautilus "$@" >/dev/null 2>&1 &
+# }
+files() {
+    nautilus --browser "$@" >/dev/null 2>&1 &
+    disown
+}

@@ -7,12 +7,15 @@ background-opacity = 0.98
 window-decoration = false
 mouse-hide-while-typing = true
 font-size = 9.0
-theme = tokyonight
+theme = TokyoNight Night
 shell-integration = zsh
 font-feature = -calt
 font-feature = -liga
 font-feature = -dlig
 
+# pi coding agent (oh my pi)
+keybind = alt+backspace=text:\x1b\x7f
+keybind = shift+enter=text:\n
 
 
 ## disable keybind

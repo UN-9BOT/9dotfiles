@@ -3,3 +3,4 @@
 # alias vim="nvim"
 export XDG_CONFIG_HOME="$HOME/.config"
 export ZDOTDIR="$XDG_CONFIG_HOME/zshrc"
+export PATH="/home/unbot/.npm-global/bin:/home/unbot/.cargo/bin:/home/unbot/go/bin:/home/unbot/.bun/bin:/home/unbot/.local/bin:$PATH"

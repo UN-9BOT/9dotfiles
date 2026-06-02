@@ -14,7 +14,7 @@ M.config = function()
       lua = { "stylua" },
       -- Conform will run multiple formatters sequentially
       -- python = { "isort", "black" },
-      python = { "black" },
+      python = { "black", "isort" },
       -- python = { "black", "docformatter" },
       -- Use a sub-list to run only the first available formatter
       javascript = { "prettierd", "prettier" },
@@ -35,6 +35,8 @@ M.config = function()
   conform.formatters.sqlfluff = { append_args = { "--config", home .. "/.config/nvim/.sqlfluff" } }
   conform.formatters.yamlfmt = { prepend_args = { "-conf", home .. "/.config/nvim/yamlfmt.yml" } }
 
+  conform.formatters.ruff = { prepend_args = {} }
+
   -- local black_args = { "--fast", "-l", "120" }
   local black_args = { "-l", "120" }
   if vim.fn.filereadable("pyproject.toml") == 1 then
@@ -45,7 +47,7 @@ M.config = function()
   -- if not vim.fn.executable(black_command) then
   --   black_command = "black"
   -- end
-  black_command = "black"
+  black_command = "black" -- #FFFFFF
   _G.nn = black_command
   conform.formatters.black = { prepend_args = black_args, command = black_command }
 

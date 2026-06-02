@@ -75,3 +75,23 @@ b({ "n", "v" }, "ZQ", function()
   vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>", true, false, true), "i", false)
   vim.cmd("qall!")
 end, opts)
+
+
+-- copy file path
+b('n', '<leader>xyy', function()
+  local rel = vim.fn.expand('%:.')      -- относительный к текущему :pwd
+  vim.fn.setreg('+', rel)              -- системный clipboard
+  vim.api.nvim_echo({ { rel } }, false, {})
+end, {
+  desc = 'Copy file path relative to CWD (Lua)',
+})
+b('n', '<leader>xyl', function()
+  local file = vim.fn.expand('%:.')        -- путь относительно текущего :pwd
+  local line = vim.fn.line('.')            -- текущая строка
+  local s = string.format('%s:%d', file, line)
+
+  vim.fn.setreg('+', s)                    -- системный clipboard
+  vim.api.nvim_echo({ { s } }, false, {})
+end, {
+  desc = 'Copy file:LINE relative to CWD',
+})

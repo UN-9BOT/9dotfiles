@@ -6,6 +6,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 
+
 _modules=(
   "modules/01-zinit.zsh"
   "modules/02-env.zsh"
@@ -26,6 +27,20 @@ done
 
 unset _modules _f
 
+_extensions=(
+  "extensions/.p10k.zsh"
+  "extensions/beans.zsh"
+)
+
+for _f in "${_extensions[@]}"; do
+  [ -r "$ZDOTDIR/$_f" ] && source "$ZDOTDIR/$_f"
+done
+
+unset _extensions _f
+
 # To customize prompt, run `p10k configure` or edit ~/.config/zshrc/.p10k.zsh.
-[[ ! -f ~/.config/zshrc/extensions/.p10k.zsh ]] || source ~/.config/zshrc/extensions/.p10k.zsh
+# [[ ! -f ~/.config/zshrc/extensions/.p10k.zsh ]] || source ~/.config/zshrc/extensions/.p10k.zsh
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
+
+# bun completions
+[ -s "/home/unbot/.bun/_bun" ] && source "/home/unbot/.bun/_bun"

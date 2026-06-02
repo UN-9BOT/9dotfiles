@@ -2,7 +2,7 @@ alias v="nvim"
 alias vim="nvim"
 alias nv="neovide"
 alias kn="killall nvim"
-alias q="exit"
+# alias q="exit"
 alias p="python"
 alias pt="ipython"
 alias yank="xclip -sel clip"
@@ -14,8 +14,8 @@ alias lg="lazygit"
 alias ldr="lazydocker"
 alias tm='tmux attach || tmux new -c "$PWD"'
 alias c="clear"
-alias bd="blobdrop"
-alias task="go-task"
+alias bld="blobdrop"
+# alias task="go-task"
 alias t="go-task"
 alias mt='sh ~/.prog/mouse-follows-focus/toggle.sh'
 
@@ -33,8 +33,7 @@ alias c=clear
 
 alias zz=exit
 
-alias rm='rm -r'
-alias rmf='rm -rf'
+alias rm='trash-put'
 
 alias cp='cp -rv'
 

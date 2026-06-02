@@ -1,0 +1,33 @@
+{
+  "throneMode": {
+    "enabled": true
+  },
+  "codexBar": {
+    "enabled": false,
+    "sourceMode": "cli"
+  },
+  "displayManager": {
+    "enabled": true
+  },
+  "audioSwitcher": {
+    "enabled": true
+  },
+  "screenRecorder": {
+    "enabled": true,
+    "quality": "high",
+    "captureSource": "screen",
+    "fps": "30"
+  },
+  "unifiedTaskbar": {
+    "enabled": false,
+    "compactMode": false,
+    "groupByApp": false,
+    "allMonitors": false,
+    "reverseMonitorOrder": false
+  },
+  "voxtype": {
+    "enabled": true,
+    "iconTheme": "minimal",
+    "refreshInterval": 2
+  }
+}

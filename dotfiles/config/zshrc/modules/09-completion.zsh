@@ -11,5 +11,13 @@ if ! compinit -C; then
   compinit -i
 fi
 
+# OpenClaw completion (cached for speed)
+_openclaw_cache="${ZDOTDIR}/.openclaw-completion.zsh"
+if [[ ! -f "$_openclaw_cache" ]] || [[ "$(which openclaw)" -nt "$_openclaw_cache" ]]; then
+  openclaw completion --shell zsh > "$_openclaw_cache" 2>/dev/null
+fi
+[[ -f "$_openclaw_cache" ]] && source "$_openclaw_cache"
+unset _openclaw_cache
+
 # disable
 compdef _files uv

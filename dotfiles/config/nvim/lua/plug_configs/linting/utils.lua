@@ -1,5 +1,13 @@
 local M = {}
 
+M.restart_lsp = function()
+  if vim.fn.exists(":lsp") == 2 then
+    vim.cmd("lsp restart")
+  elseif vim.fn.exists(":LspRestart") == 2 then
+    vim.cmd("LspRestart")
+  end
+end
+
 M.float_format = function(diagnostic)
   local symbol = "-"
   local source = diagnostic.source
@@ -33,7 +41,7 @@ M.toggle_mypy = function(lint)
         lint.linters_by_ft.python = { "ruff" }
 
         require("lint").try_lint()
-        vim.cmd("LspRestart")
+        M.restart_lsp()
         vim.cmd("Gitsigns refresh")
 
         require("notify").notify("  Disable mypy", "WARN", {})
@@ -41,7 +49,7 @@ M.toggle_mypy = function(lint)
       else
         lint.linters_by_ft.python = { "ruff", "mypy" }
         require("lint").try_lint()
-        vim.cmd("LspRestart")
+        M.restart_lsp()
         vim.cmd("Gitsigns refresh")
 
         require("notify").notify("  Try mypy lint", "TRACE", {})

@@ -1,7 +1,7 @@
 local lsp_utils = require("plug_configs.lsp.utils")
 local lspCapabilities = lsp_utils.lspCapabilities
 
-require("lspconfig").lua_ls.setup({
+vim.lsp.config('lua_ls', {
   capabilities = lspCapabilities,
   filetypes = { "lua" },
   settings = {
@@ -9,10 +9,11 @@ require("lspconfig").lua_ls.setup({
       diagnostics = { globals = { "vim" } },
       format = {
         enable = true,
-        formatting_options = {
-          trimTrailingWhitespace = true,
-          insertFinalNewline = true,
-          tabSize=8,
+        defaultConfig = {
+          indent_style = "space",
+          indent_size = "2",
+          trim_trailing_whitespace = "true",
+          insert_final_newline = "true",
         },
       },
     },

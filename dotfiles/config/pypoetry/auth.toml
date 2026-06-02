@@ -1,0 +1,11 @@
+[http-basic.integration-common]
+username = "gitlab-ci-token"
+
+[http-basic.integration-clients]
+username = "gitlab-ci-token"
+
+[http-basic.starlette-admin]
+username = "gitlab-ci-token"
+
+[http-basic.ms_api_client]
+username = "gitlab-ci-token"

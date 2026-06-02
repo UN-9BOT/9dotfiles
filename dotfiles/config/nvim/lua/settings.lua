@@ -2,7 +2,7 @@
 
 -- NOTE: GLOBAL_VARS
 -- selene: allow(global_usage)
-_G.use_split = false
+_G.use_split = true
 --
 
 -- security

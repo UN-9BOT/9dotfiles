@@ -4,8 +4,8 @@ local g_utils = require("utils")
 local mapping = require("plug_configs.lsp.utils").mapping
 
 M.dependencies = {
-  -- { "stevanmilic/nvim-lspimport" },
   {
+  -- { "stevanmilic/nvim-lspimport" },
     "UN-9BOT/nvim-lspimport",
     branch = "layout_config",
     config = function()
@@ -56,6 +56,7 @@ M.keys = {
   { "gi", mapping.incoming_calls.telescope, desc = "Incoming Calls" },
   { "gt", mapping.type_definition.goto_preview, desc = "Preview Type Definition" },
   { "gT", mapping.type_definition.goto_preview_close, desc = "Close Preview Type Definition" },
+  -- { "gI", mapping.implementation.def, desc = "Goto Implementation" },
 }
 
 M.init = function(bufnr)
@@ -68,15 +69,15 @@ M.init = function(bufnr)
     lineFoldingOnly = true,
   }
 
-  require("plug_configs.lsp.ft_python").init(capabilities)
-  require("plug_configs.lsp.ft_sql")
+  require("plug_configs.lsp.ft_python")
+  -- require("plug_configs.lsp.ft_sql")
   require("plug_configs.lsp.ft_lua")
   require("plug_configs.lsp.ft_json").init(capabilities)
   require("plug_configs.lsp.ft_gitlabci").init(capabilities)
-  require("plug_configs.lsp.ft_gitlabci").init(capabilities)
-  require("lspconfig").bashls.setup({})
-  require("lspconfig").zls.setup({})
-  require("lspconfig").taplo.setup({})
+  vim.lsp.config("bashls", { capabilities = capabilities })
+  vim.lsp.config("zls", { capabilities = capabilities })
+  vim.lsp.config("taplo", { capabilities = capabilities })
+  -- vim.lsp.config("null-ls", {})
   vim.lsp.enable("clangd")
 end
 
