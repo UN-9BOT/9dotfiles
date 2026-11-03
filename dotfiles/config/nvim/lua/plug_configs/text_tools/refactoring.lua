@@ -3,7 +3,7 @@ local M = {
   lazy = false,
   dependencies = {
     "nvim-lua/plenary.nvim",
-    "neovim-treesitter/nvim-treesitter",
+    "nvim-treesitter/nvim-treesitter",
   },
 }
 

@@ -1,46 +1,21 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.config/zshrc/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
+# Rebuilt 2026-10-16 from captured live zsh settings plus marked historical fallbacks.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-
-
-_modules=(
-  "modules/01-zinit.zsh"
-  "modules/02-env.zsh"
-  "modules/03-paths.zsh"
-  "modules/04-options.zsh"
-  "modules/05-tools.zsh"
-  "modules/06-aliases.zsh"
-  "modules/07-functions.zsh"
-  "modules/08-keys.zsh"
-  "modules/09-completion.zsh"
-  "modules/10-plugins.zsh"
-  "modules/11-ui.zsh"
-)
-
-for _f in "${_modules[@]}"; do
-  [ -r "$ZDOTDIR/$_f" ] && source "$ZDOTDIR/$_f"
+for _f in modules/{00-live-settings,01-zinit,02-env,03-paths,04-options,05-tools,06-aliases,07-functions,08-keys,09-completion,10-plugins,11-ui}.zsh; do
+  [[ -r "$ZDOTDIR/$_f" ]] && source "$ZDOTDIR/$_f"
 done
+unset _f
+[[ -r "$ZDOTDIR/extensions/beans.zsh" ]] && source "$ZDOTDIR/extensions/beans.zsh"
 
-unset _modules _f
-
-_extensions=(
-  "extensions/.p10k.zsh"
-  "extensions/beans.zsh"
-)
-
-for _f in "${_extensions[@]}"; do
-  [ -r "$ZDOTDIR/$_f" ] && source "$ZDOTDIR/$_f"
-done
-
-unset _extensions _f
-
-# To customize prompt, run `p10k configure` or edit ~/.config/zshrc/.p10k.zsh.
-# [[ ! -f ~/.config/zshrc/extensions/.p10k.zsh ]] || source ~/.config/zshrc/extensions/.p10k.zsh
-typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
-
-# bun completions
-[ -s "/home/unbot/.bun/_bun" ] && source "/home/unbot/.bun/_bun"
+# Saved functions were already alias-expanded by the original shell.
+# Suppress a second alias expansion while loading their definitions.
+() {
+  setopt localoptions noaliases
+  builtin source "$ZDOTDIR/extensions/live-functions.zsh"
+}
+# Powerlevel10k calls this saved formatter as a math function.
+functions -M my_git_formatter
+source "$ZDOTDIR/extensions/.p10k.zsh"
+[[ -s "$HOME/.bun/_bun" ]] && source "$HOME/.bun/_bun"

@@ -462,7 +462,6 @@ set -g @tpm_plugins '              \
     UN-9BOT/tmux-neolazygit \
     sainnhe/tmux-fzf \
     UN-9BOT/tmux-fzf-open-files-nvim \
-    alexekdahl/tmux-compile \
 '
 # set -g @open-file-nvim-key 'X'
 

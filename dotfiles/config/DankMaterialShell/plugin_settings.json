@@ -1,6 +1,6 @@
 {
   "throneMode": {
-    "enabled": true
+    "enabled": false
   },
   "codexBar": {
     "enabled": false,
@@ -29,5 +29,29 @@
     "enabled": true,
     "iconTheme": "minimal",
     "refreshInterval": 2
+  },
+  "aiOverviewControl": {
+    "enabled": true,
+    "densityMode": "compact",
+    "showErrorProviders": "true",
+    "showClaudeProjects": "false",
+    "pillProviders": "minimax",
+    "providerSelection": "minimax,codex",
+    "pinnedProviders": "codex,minimax",
+    "refreshInterval": "900000",
+    "barWindowOverrides": "",
+    "notifyThreshold": "75",
+    "notifyCooldownMinutes": "60"
+  },
+  "quickCapture": {
+    "enabled": true
+  },
+  "screenRecorderYS": {
+    "enabled": true,
+    "defaultMonitor": "DP-1",
+    "maxFps": "15",
+    "quality": "medium",
+    "recordMicrophone": true,
+    "microphoneInput": "easyeffects_source"
   }
 }

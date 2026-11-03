@@ -1,19 +1,60 @@
-# history without duplicates
-setopt HIST_EXPIRE_DUPS_FIRST
-setopt HIST_IGNORE_DUPS
-setopt HIST_IGNORE_ALL_DUPS
-setopt HIST_IGNORE_SPACE
-setopt HIST_FIND_NO_DUPS
-setopt HIST_SAVE_NO_DUPS
-
-# history file
-export HISTFILE="${XDG_STATE_HOME:-$HOME/.local/state}/zsh/history"
-mkdir -p "${HISTFILE%/*}"
-export HISTSIZE=50000
-export SAVEHIST=50000
-
-# emacs mode
+# Only user-facing options are restored; process execution modes are not copied.
+setopt alwayslastprompt
+unsetopt alwaystoend
+setopt appendhistory
+unsetopt autocd
+setopt autolist
+setopt automenu
+setopt autoparamkeys
+setopt autoparamslash
+setopt autopushd
+setopt autoremoveslash
+unsetopt autoresume
+unsetopt cdablevars
+unsetopt cdsilent
+unsetopt completealiases
+unsetopt completeinword
+unsetopt correct
+unsetopt correctall
+unsetopt extendedglob
+setopt glob
+unsetopt globdots
+unsetopt histallowclobber
+setopt histbeep
+setopt histexpiredupsfirst
+unsetopt histfcntllock
+setopt histfindnodups
+setopt histignorealldups
+setopt histignoredups
+setopt histignorespace
+unsetopt histlexwords
+unsetopt histnofunctions
+unsetopt histnostore
+unsetopt histreduceblanks
+setopt histsavebycopy
+setopt histsavenodups
+unsetopt histsubstpattern
+unsetopt histverify
+unsetopt incappendhistory
+unsetopt incappendhistorytime
+unsetopt sharehistory
+setopt listambiguous
+unsetopt listbeep
+unsetopt listpacked
+unsetopt listrowsfirst
+setopt listtypes
+unsetopt menucomplete
+setopt nomatch
+unsetopt numericglobsort
+unsetopt promptbang
+setopt promptcr
+setopt promptpercent
+setopt promptsp
+setopt promptsubst
+setopt pushdignoredups
+unsetopt pushdminus
+unsetopt pushdsilent
+unsetopt pushdtohome
+command mkdir -p -- "${HISTFILE:h}"
 bindkey -e
-
-# compinit (cash)
 zmodload zsh/complist

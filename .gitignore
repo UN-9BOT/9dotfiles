@@ -1,6 +1,9 @@
 *.shada
 dotfiles/config/lazygit/state.yml
 dotfiles/config/zshrc/.zcompdump
+dotfiles/config/zshrc/.zcompdump.gmkbot*
 dotfiles/config/nvim/after/queries
 /dotfiles/config/niri/.codex
 /dotfiles/config/nvim/query editor
+dotfiles/config/DankMaterialShell/plugins/aiOverviewControl/
+dotfiles/config/DankMaterialShell/plugins/screenRecorderYS/

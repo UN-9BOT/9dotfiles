@@ -1,6 +1,6 @@
 {
-  "currentThemeName": "dynamic",
-  "currentThemeCategory": "dynamic",
+  "currentThemeName": "purple",
+  "currentThemeCategory": "generic",
   "customThemeFile": "",
   "registryThemeVariants": {},
   "matugenScheme": "scheme-content",
@@ -193,7 +193,7 @@
       "type": "regex"
     }
   ],
-  "centeringMode": "index",
+  "centeringMode": "geometric",
   "clockDateFormat": "",
   "lockDateFormat": "",
   "greeterRememberLastSession": true,
@@ -211,7 +211,9 @@
   "sortAppsAlphabetically": false,
   "appLauncherGridColumns": 4,
   "spotlightCloseNiriOverview": true,
-  "spotlightSectionViewModes": {},
+  "spotlightSectionViewModes": {
+    "apps": "list"
+  },
   "appDrawerSectionViewModes": {},
   "niriOverviewOverlayEnabled": true,
   "dankLauncherV2Size": "compact",
@@ -222,7 +224,7 @@
   "dankLauncherV2UnloadOnClose": false,
   "useAutoLocation": false,
   "weatherEnabled": true,
-  "networkPreference": "auto",
+  "networkPreference": "wifi",
   "iconTheme": "System Default",
   "cursorSettings": {
     "theme": "System Default",
@@ -471,6 +473,10 @@
         {
           "id": "focusedWindow",
           "enabled": false
+        },
+        {
+          "id": "aiOverviewControl",
+          "enabled": true
         }
       ],
       "centerWidgets": [
@@ -479,15 +485,11 @@
           "enabled": true
         },
         {
-          "id": "weather",
-          "enabled": true
-        },
-        {
-          "id": "codexBar",
-          "enabled": true
-        },
-        {
           "id": "voxtype",
+          "enabled": true
+        },
+        {
+          "id": "screenRecorderYS",
           "enabled": true
         }
       ],
@@ -691,7 +693,11 @@
     }
   ],
   "desktopWidgetGroups": [],
-  "builtInPluginSettings": {},
+  "builtInPluginSettings": {
+    "dms_settings_search": {
+      "trigger": "?"
+    }
+  },
   "clipboardEnterToPaste": false,
   "launcherPluginVisibility": {},
   "launcherPluginOrder": [],

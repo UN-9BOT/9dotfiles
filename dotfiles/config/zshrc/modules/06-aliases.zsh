@@ -1,44 +1,38 @@
-alias v="nvim"
-alias vim="nvim"
-alias nv="neovide"
-alias kn="killall nvim"
-# alias q="exit"
-alias p="python"
-alias pt="ipython"
-alias yank="xclip -sel clip"
-alias cat="ccat"
-# alias ls="exa --git"
-alias ls="facad"
-alias rm="rm -I"
-alias lg="lazygit"
-alias ldr="lazydocker"
-alias tm='tmux attach || tmux new -c "$PWD"'
-alias c="clear"
-alias bld="blobdrop"
-# alias task="go-task"
-alias t="go-task"
-alias mt='sh ~/.prog/mouse-follows-focus/toggle.sh'
-
-# RUN helpers
-alias wgu='sh ~/.config/scripts/run_DBS.sh'
-alias wgd='sh ~/.config/scripts/kill_DBS.sh'
-
-# cd
-alias ..='cd ..'
-alias .1='cd ..'
-alias .2='cd ../..'
-alias .3='cd ../../..'
-
-alias c=clear
-
-alias zz=exit
-
-alias rm='trash-put'
-
-alias cp='cp -rv'
-
-# history
-alias h='history'
-alias hl='history | less'
-alias hs='history | grep'
-alias hsi='history | grep -i'
+# Общие алиасы: значения совпали во всех снятых сессиях, где они были определены.
+alias -- '..=cd ..'
+alias -- '.1=cd ..'
+alias -- '.2=cd ../..'
+alias -- '.3=cd ../../..'
+alias -- 'bld=blobdrop'
+alias -- 'c=clear'
+alias -- 'cat=ccat'
+alias -- 'codexpro_current=CODEXPRO_ALLOW_HOME=1 CODEXPRO_BASH_MODE=full codexpro start --root "$PWD" --token-file ~/.codexpro/http-token'
+alias -- 'cp=cp -rv'
+alias -- 'fsh-alias=fast-theme'
+alias -- 'h=history'
+alias -- 'hl=history | less'
+alias -- 'hs=history | grep'
+alias -- 'hsi=history | grep -i'
+alias -- 'kn=killall nvim'
+alias -- 'ldr=lazydocker'
+alias -- 'lg=lazygit'
+alias -- 'ls=facad'
+alias -- 'mt=sh ~/.prog/mouse-follows-focus/toggle.sh'
+alias -- 'nv=neovide'
+alias -- 'p=python'
+alias -- 'pt=ipython'
+alias -- 'rm=trash-put'
+alias -- 'run-help=man'
+alias -- 't=go-task'
+alias -- 'tm=tmux attach || tmux new -c "$PWD"'
+alias -- 'v=nvim'
+alias -- 'vim=nvim'
+alias -- 'wgd=sh ~/.config/scripts/kill_DBS.sh'
+alias -- 'wgu=sh ~/.config/scripts/run_DBS.sh'
+alias -- 'which-command=whence'
+alias -- 'yank=xclip -sel clip'
+alias -- 'zi=zinit'
+alias -- 'zini=zinit'
+alias -- 'zpl=zinit'
+alias -- 'zplg=zinit'
+alias -- 'zz=exit'

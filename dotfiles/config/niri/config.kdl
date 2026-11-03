@@ -95,6 +95,11 @@ window-rule {
   match app-id="brave"
   opacity 0.97
 }
+// OpenCluely: both the development Electron app-id and the packaged app-id.
+window-rule {
+  match app-id=r#"^(opencluely|com\.opencluely\.app)$"#
+  open-floating true
+}
 output "HDMI-A-1" {
   mode "1920x1080@74.973"
   scale 1
@@ -136,6 +141,26 @@ binds {
   }
   Mod+V hotkey-overlay-title="Clipboard Manager" {
     spawn "dms" "ipc" "call" "clipboard" "toggle"
+  }
+  // OpenCluely screenshot → AI via its local Unix-socket API.
+  Mod+S repeat=false {
+    spawn "sh" "-lc" "printf 'screenshot\\n' | socat -T 1 - UNIX-CONNECT:\"$XDG_RUNTIME_DIR/opencluely-control.sock\" >/dev/null"
+  }
+  // OpenCluely voice recording toggle.
+  Mod+T repeat=false {
+    spawn "sh" "-lc" "printf 'voice\\n' | socat -T 1 - UNIX-CONNECT:\"$XDG_RUNTIME_DIR/opencluely-control.sock\" >/dev/null"
+  }
+  // OpenCluely AI response window visibility.
+  Mod+E repeat=false {
+    spawn "sh" "-lc" "printf 'toggle-response\\n' | socat -T 1 - UNIX-CONNECT:\"$XDG_RUNTIME_DIR/opencluely-control.sock\" >/dev/null"
+  }
+  // Toggle OpenCluely click-through so the shared app keeps the pointer.
+  Mod+N repeat=false {
+    spawn "sh" "-lc" "printf 'toggle-interaction\\n' | socat -T 1 - UNIX-CONNECT:\"$XDG_RUNTIME_DIR/opencluely-control.sock\" >/dev/null"
+  }
+  // Clear OpenCluely conversation memory.
+  Mod+Shift+C repeat=false {
+    spawn "sh" "-lc" "printf 'clear-session\\n' | socat -T 1 - UNIX-CONNECT:\"$XDG_RUNTIME_DIR/opencluely-control.sock\" >/dev/null"
   }
   Mod+M {
     set-dynamic-cast-monitor

@@ -109,7 +109,7 @@ M.config = function()
         },
         { test_status_counts },
         { check_status_linters },
-        { require("recorder").recordingStatus },
+        -- { require("recorder").recordingStatus },
       },
     },
   })

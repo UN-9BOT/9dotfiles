@@ -7,6 +7,21 @@ config:
   link_dotfile_default: nolink
   link_on_import: nolink
   longkey: false
+  cmpignore:
+  - '*DankMaterialShell/plugins/aiOverviewControl*'
+  - '*DankMaterialShell/plugins/screenRecorderYS*'
+  - '*.zcompdump.gmkbot*'
+  - '*.shada'
+  upignore:
+  - '*DankMaterialShell/plugins/aiOverviewControl*'
+  - '*DankMaterialShell/plugins/screenRecorderYS*'
+  - '*.zcompdump.gmkbot*'
+  - '*.shada'
+  instignore:
+  - '*DankMaterialShell/plugins/aiOverviewControl*'
+  - '*DankMaterialShell/plugins/screenRecorderYS*'
+  - '*.zcompdump.gmkbot*'
+  - '*.shada'
 dotfiles:
   d_lazygit:
     src: config/lazygit

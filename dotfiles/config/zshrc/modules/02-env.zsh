@@ -1,3 +1,1 @@
-export MAIL="un.9bot@gmail.com"
-export VISUAL="nvim"
-export EDITOR="nvim"
+# Preferences are restored by 00-live-settings.zsh.
