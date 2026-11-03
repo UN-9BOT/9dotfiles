@@ -8,18 +8,15 @@ config:
   link_on_import: nolink
   longkey: false
   cmpignore:
-  - '*DankMaterialShell/plugins/aiOverviewControl*'
-  - '*DankMaterialShell/plugins/screenRecorderYS*'
+  - '*DankMaterialShell/plugins/*'
   - '*.zcompdump.gmkbot*'
   - '*.shada'
   upignore:
-  - '*DankMaterialShell/plugins/aiOverviewControl*'
-  - '*DankMaterialShell/plugins/screenRecorderYS*'
+  - '*DankMaterialShell/plugins/*'
   - '*.zcompdump.gmkbot*'
   - '*.shada'
   instignore:
-  - '*DankMaterialShell/plugins/aiOverviewControl*'
-  - '*DankMaterialShell/plugins/screenRecorderYS*'
+  - '*DankMaterialShell/plugins/*'
   - '*.zcompdump.gmkbot*'
   - '*.shada'
 dotfiles:
